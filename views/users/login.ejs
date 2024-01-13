@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-8 offset-2 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-9 offset-lg-1 col-xl-10 offset-xl-0">
+            <div class="card shadow">
+                <img src="https://www.splashrvresort.com/wp-content/uploads/elementor/thumbs/289769057_5081151788599051_8526821867757086068_n-pthw7mu2h66jewn4h0xpt5rc9p53o0pcgs17ra02bc.jpg" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Login:</h5>
+                    <form action="/login" method="POST" class="validated-form" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username" value="" autofocus required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="text" id="password" name="password" value="" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2  mx-auto">
+                            <button class="btn btn-info">Login</button>
+                          </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>

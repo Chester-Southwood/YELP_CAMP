@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') %>
+
+
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="row">
+            <div class="col-8 offset-2 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-9 offset-lg-1 col-xl-10 offset-xl-0">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h1 class="card-title" id="searchCampgroundHeader">Search Campgrounds!</h1>
+                        <input id="searchbar"
+                            onkeyup="searchCampground()"
+                            type="text" name="search"
+                            placeholder="Search.."
+                            autofocus>
+                        <ul id='list'>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    const camps = <%-JSON.stringify(campgrounds)%>;
+    function searchCampground() {
+  let input = document.getElementById('searchbar').value
+  input = input.toLowerCase();
+  let y = document.getElementById('list');
+  let child = y.lastElementChild;
+while (child) {
+    y.removeChild(child);
+    child = y.lastElementChild;
+}
+  for (i = 0, count = 0; i < camps.length && count != 5; i++) {
+    if (camps[i].title.toLowerCase().includes(input)) {
+        const liNode = document.createElement("li");
+        const aNode = document.createElement("a");
+        aNode.text = (`${camps[i].title}`);
+        aNode.href = (`/campgrounds/${camps[i]._id}`);
+        liNode.appendChild(aNode);
+        liNode.setAttribute('class', 'searchCampgroundElement');
+      y.appendChild(liNode);
+      count++;
+    }
+  }
+}
+</script>
