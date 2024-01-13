@@ -8,8 +8,6 @@ cloudinary.config({
     api_secret: process.env.API_SECRET
 });
 
-console.log(process.env);
-
 //https://github.com/affanshahid/multer-storage-cloudinary
 const cloudinaryStorage = new CloudinaryStorage({
     cloudinary,

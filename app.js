@@ -15,7 +15,7 @@ const express                          = require('express'),
       usersRoutes                      = require('./routes/users'),
       testsRoutes                      = require('./routes/test'),
       session                          = require('express-session'),
-      MongoStore                       = require('connect-mongo')(session)
+      MongoStore                       = require('connect-mongo')
       flash                            = require('connect-flash'),
       passport                         = require('passport'),
       LocalPassportStrategy            = require('passport-local'),
@@ -39,23 +39,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('ejs', ejsMate);
 app.use(mongoSanitize());
 
-
-const dbStore = new MongoStore({
-    url: uri,
-    secret: 'temp-secret',
-    touchAfter: 24 * 60 * 60
-});
-
-dbStore.on('error', (e) => {
-    console.log('Session Store Error', e);
-});
-
 const oneWeek = 1000 * 60 * 60 * 24 * 7;
 //Session
 const sessionConfig = {
     name: 'session', //overrides default name, makes it more annoying to hackers
     secret: 'temp-secret',
-    store: dbStore,
+    store: MongoStore.create({
+        mongoUrl: uri,
+        secret: 'temp-secret',
+        touchAfter: 24 * 60 * 60
+    }),
     resave: false,
     saveUninitialized: true,
     cookie: {
