@@ -7,4 +7,10 @@
 * Database - https://cloud.mongodb.com/
 ## Reminders to future Self
 * .env file contains environment variables that aren't included in uploaded git repo, have to reference locally if still avaliable.
+  * CLOUD_NAME=
+  * API_KEY
+  * API_SECRET=
+  * MAP_BOX_TOKEN=
+  * MONGOOSE_USERNAME=
+  * MONGOOSE_PASSWORD=
 * Boostrap 5.3v was used.
