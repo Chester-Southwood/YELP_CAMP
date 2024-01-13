@@ -8,8 +8,6 @@
 </script>
 <div class="row">
     <div class="col-6">
-        <div id="map"></div>
-
         <div class="card mb-3" >
             <% if (campground.images.length) { %>
                 <div id="campgroundCarousel" class="card-img-top carousel slide">
@@ -36,7 +34,6 @@
             <% } %>
             </div>
             <div class="card-body">
-              <h5 class="card-title"><%= campground.title %></h5>
               <p class="card-text"><%= campground.description %></p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
@@ -54,9 +51,10 @@
             <% } %>
         </div>
     </div>
-    <% if (currentUser) { %>
         <div class="col-6">
-            <h2>Leave a Review!</h2>
+            <div id="map"></div>
+            <h2 class="mt-3">Leave a Review!</h2>
+            <% if (currentUser) { %>
             <form action="/campgrounds/<%=campground._id%>/reviews?_method=POST" method="post" class="mb-3 validated-form" novalidate>
                 <div class="mb-3">
                     <fieldset class="starability-basic">
@@ -84,6 +82,7 @@
                 </div>
                 <button class="btn btn-success">Submit!</button>
             </form>
+            <% } %>
             <% for( let review of campground.reviews ) { %>
                 <div class="card mg-3">
                     <div class="mb-3 card-body">
@@ -101,7 +100,6 @@
                 </div>
             <% } %>
         </div>   
-        <% } %>
 </div>
 
 <script src="/js/showPageMap.js"></script>
