@@ -22,7 +22,7 @@ const express                          = require('express'),
       User                             = require('./models/user');
 
 const uri = `mongodb+srv://${process.env.MONGOOSE_USERNAME}:${process.env.MONGOOSE_PASSWORD}@yelp-camp-cluster.y85puow.mongodb.net/?retryWrites=true&w=majority`;
-mongoose.connect(dbUrl, {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
