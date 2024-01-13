@@ -21,7 +21,7 @@ const express                          = require('express'),
       LocalPassportStrategy            = require('passport-local'),
       User                             = require('./models/user');
 
-const uri = process.env.MONGOOSE_URI;
+const uri = `mongodb+srv://${process.env.MONGOOSE_USERNAME}:${process.env.MONGOOSE_PASSWORD}@yelp-camp-cluster.y85puow.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(uri);
 //mongoose.connect('mongodb://localhost:27017/yelp-camp', {});
 
