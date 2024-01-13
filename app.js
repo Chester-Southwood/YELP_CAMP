@@ -22,8 +22,12 @@ const express                          = require('express'),
       User                             = require('./models/user');
 
 const uri = `mongodb+srv://${process.env.MONGOOSE_USERNAME}:${process.env.MONGOOSE_PASSWORD}@yelp-camp-cluster.y85puow.mongodb.net/?retryWrites=true&w=majority`;
-mongoose.connect(uri);
-//mongoose.connect('mongodb://localhost:27017/yelp-camp', {});
+mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => {
