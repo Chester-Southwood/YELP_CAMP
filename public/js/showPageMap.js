@@ -18,7 +18,7 @@ if (!mapboxgl.supported()) {
             offset:25
         })
         .setHTML(
-            `<h3>${campgroundTitle}</h3><p>${campgroundLocation}</p>`
+            `<h5>${campgroundTitle}</h5><p class="mb-0">${campgroundLocation}</p>`
         )
     )
     .addTo(map);
